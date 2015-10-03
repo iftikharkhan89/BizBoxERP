@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="ERPHome.xhtml" x="29" y="217" zoom="false"/>
+        <Node id="SecurityPanel.xhtml" x="66" y="55" zoom="true"/>
+        <Node id="index.xhtml" x="86" y="362" zoom="false"/>
+        <Node id="Welcome.xhtml" x="783" y="218" zoom="true"/>
+        <Node id="security/AddUser.xhtml" x="783" y="262" zoom="true"/>
+        <Node id="security/AllUsers.xhtml" x="785" y="314" zoom="true"/>
+        <Node id="*" x="400" y="150" zoom="true"/>
+        <Node id="EngineeringPanel.xhtml" x="150" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

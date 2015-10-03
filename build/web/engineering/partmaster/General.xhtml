@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+        <h:form id="partMasterSelectionForm">  
+        <p:panel id="optionsPanel">
+            <p:selectOneButton  id="options" value="#{partMasterGeneralBean.selectedButton}">
+            <f:selectItem itemLabel="Add Part Master" itemValue="1" />  
+            <f:selectItem itemLabel="Search Part Master" itemValue="2" />  
+            <f:selectItem itemLabel="Lookup Part Master" itemValue="3" />
+            <f:selectItem itemLabel="Change Part Type" itemValue="4" />
+            <p:ajax id="optionsSelectionAjax" update="partMasterUIPanel"/>
+        </p:selectOneButton> 
+       
+        <p:panel id="partMasterUIPanel" style="border: 0">         
+            <p:panel rendered="#{partMasterGeneralBean.selectedButton == 1}" id="addPartMasterPanel" >
+                <ui:include src="templates/AddPartMaster.xhtml"/>
+            </p:panel>
+        <p:panel rendered="#{partMasterGeneralBean.selectedButton == 2}" id="searchPartMasterPanel" >
+                <ui:include src="templates/SearchPartMaster.xhtml"/>   
+        </p:panel>
+        
+        <p:panel rendered="#{partMasterGeneralBean.selectedButton == 3}"  id="lookupPartMasterPanel" >
+                <ui:include src="templates/LookupPartMaster.xhtml"/>
+        </p:panel>
+        <p:panel rendered="#{partMasterGeneralBean.selectedButton == 4}" id="changePartMasterTypePanel" >
+                <ui:include src="templates/ChangePartType.xhtml"/>
+        </p:panel>
+       </p:panel>
+      </p:panel>
+    </h:form>
+</html>
+
+
+
+
+
+
+
+
+

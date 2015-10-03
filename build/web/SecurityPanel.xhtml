@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+         <ui:composition template="./WEB-INF/templates/ERPHomeTemplate.xhtml"> 
+            <ui:define name="content"> 
+                <p:tabView orientation="left" activeIndex="#{securityPanelBean.leftTabIndex}">  
+                <p:tab title="User">  
+                    <p:tabView orientation="top" activeIndex="#{securityPanelBean.topTabIndex}">  
+                        <p:tab title="Add User">  
+                             <ui:include src="/security/AddUser.xhtml"/>
+                        </p:tab>
+                        <p:tab title="Edit User Properties">   
+                             <ui:include src="/security/EditUserProperties.xhtml"/>
+                        </p:tab>
+                        <p:tab title="All User">   
+                             <ui:include src="/security/AllUsers.xhtml"/>  
+                        </p:tab>  
+                        <p:tab title="Search">  
+                            <ui:include src="/security/SearchUser.xhtml"/>   
+                        </p:tab>
+                        <p:tab title="Actions">  
+                            <h:panelGrid columns="1" cellpadding="10">                  
+                            <h:outputText value="User Action"></h:outputText>  
+                            </h:panelGrid>  
+                        </p:tab>
+                </p:tabView> 
+                </p:tab>  
+                <p:tab title="Role">
+                    <p:tabView orientation="top" activeIndex="0">  
+                        <p:tab title="Add Role">  
+                             <ui:include src="/security/AddRole.xhtml"/>
+                        </p:tab>
+                        <p:tab title="All Roles">   
+                             <ui:include src="/security/AllRoles.xhtml"/>
+                        </p:tab>                       
+                </p:tabView>                   
+                </p:tab>  
+                <p:tab title="Permission">  
+                <p:tabView orientation="top" activeIndex="0">  
+                        <p:tab title="All Permissions">  
+                             <ui:include src="/security/AllPermissions.xhtml"/>
+                        </p:tab>
+                        <p:tab title="Search">   
+                             <ui:include src="/security/SearchPermission.xhtml"/>
+                        </p:tab>                       
+                </p:tabView> 
+                </p:tab>
+                <p:tab title="Operation Log">  
+                  <ui:include src="/security/SearchOperationLogs.xhtml"/>
+                </p:tab>
+                </p:tabView>
+             </ui:define>
+       </ui:composition> 
+    </body>
+</html>

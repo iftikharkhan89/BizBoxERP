@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <h:form id="partMasterReportsForm">
+            <p:panel id="partMasterReportsPanel">
+                <p:panel id="reports_onHold_Panel">
+                    <p:commandButton value="Search Parts on Hold"  id="reports_searchPartsOnHold"  
+                                     actionListener="#{partsMasterReportsBean.searchPartsOnHold}" styleClass="ui-priority-primary"/>
+                    <p:commandButton value="Search Parts with BOM"  id="reports_searchPartsWithBOM"  
+                                     actionListener="#{partsMasterReportsBean.searchPartsWithBOM}" styleClass="ui-priority-primary"/>
+                    <p:commandButton value="Search Parts with Work Instruction"  id="reports_searchPartsWithWorkInstruction"  
+                                     actionListener="#{partsMasterReportsBean.searchPartsWithWorkInstruction}" styleClass="ui-priority-primary"/>
+                     <p:commandButton value="Search Inactive Parts"  id="reports_searchInactiveParts"  
+                                     actionListener="#{partsMasterReportsBean.searchInactiveParts}" styleClass="ui-priority-primary"/>
+                </p:panel>
+                <p:panel id="reports_searchBOMWithBOMNumber_Panel">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="140">
+                            <p:outputLabel for="reports_billNumberInput" value="Bill# (separate by ,)"/>
+                            </td>
+                            <td width="160">
+                            <p:inputText id="reports_billNumberInput" value="#{partsMasterReportsBean.billNumber}"/>
+                            </td>
+                            <td width="100">
+                            <p:outputLabel value="Part Type:"/>
+                            </td>
+                            <td width="140">
+                            <p:selectOneMenu id="reports_partTypeOptions" value="#{partsMasterReportsBean.selectedPartType}" effect="fold" style="width:130px">                       
+                                <f:selectItems value="#{partMasterBean.partTypes}" />  
+                            </p:selectOneMenu>
+                                </td>
+                        
+                            <td>
+                                <p:commandButton value="Search BOM item by BOM#"  id="reports_searchBOMItemByBOMNumber"  
+                                             actionListener="#{partsMasterReportsBean.searchBOMItemByBOMNumber}" styleClass="ui-priority-primary"/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+                <p:panel id="reports_batchUpdateListPrice_Panel">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="140">
+                                <p:outputLabel for="reprots_listPriceAdjustPercentInput" value="List Price Adjust Percent: *"/>
+                            </td>
+                            <td width="160">
+                                <p:inputText id="reprots_listPriceAdjustPercentInput" value="#{partsMasterReportsBean.listPriceAdjustPercent}"/>
+                            </td>
+                            <td width="100" >
+                                <p:outputLabel for="reports_commodityCodeInput" value="Commodity Code: "/>
+                            </td>
+                            <td width="140">
+                                <p:inputText id="reports_commodityCodeInput" value="#{partsMasterReportsBean.commodityCode}"/>
+                            </td>
+                            <td>
+                                <p:commandButton value="Update Part List Price"  id="reports_batchUpdateListPriceButton"  
+                                     actionListener="#{partsMasterReportsBean.batchUpdatePartListPrice}" styleClass="ui-priority-primary"/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </p:panel> 
+        </h:form>
+    </body>
+</html>

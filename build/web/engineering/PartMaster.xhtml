@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        <p:tabView id="partMasterTopViewTabs" orientation="top" activeIndex="0" style="border: 0">  
+                        <p:tab title="General">  
+                             <ui:include src="partmaster/General.xhtml"/> 
+                        </p:tab>
+                        <p:tab title="Reports">   
+                             <ui:include src="partmaster/PartMasterReports.xhtml"/>
+                        </p:tab>
+                        <p:tab title="Info Center">   
+                             <ui:include src="partmaster/EngineeringInfoBox.xhtml"/>   
+                        </p:tab>  
+                        <p:tab title="Audit">  
+                             <ui:include src="partmaster/PartMasterAudit.xhtml"/> 
+                        </p:tab>
+                        <p:tab title="Engineering Sharing Control">  
+                             <ui:include src="partmaster/EngineeringSharing.xhtml"/>
+                        </p:tab>
+                        <p:tab id="partMasterUploadTab" title="Upload">  
+                             <ui:include src="partmaster/Upload.xhtml"/>
+                        </p:tab>
+                </p:tabView> 
+</html>

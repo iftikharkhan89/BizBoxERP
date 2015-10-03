@@ -1,0 +1,243 @@
+#mainContent {
+    width:100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    min-height:400px
+}
+#content {
+    width:100%;
+}
+
+#left {
+    float: left;
+    max-height: 550px;
+    overflow: auto;
+    width: 15%;
+}
+#footerlabels {
+    width:99.5%;
+    display:inline-block;
+    margin-top:8px;
+}
+.ui-panelmenu .ui-panelmenu-header a {
+    font-size: 16px;
+    text-align: center;
+    padding-left:.5em;
+}
+.ui-panelmenu .ui-menuitem-link {
+    width:100%;
+    border-radius: 0px;
+    border-bottom:1px solid #EEEEEE;
+    
+}
+.ui-panelmenu .ui-menuitem-text {
+    padding-left:4px;
+    font-size:12px;
+}
+.ui-panelmenu .ui-panelmenu-content {
+    padding: 0px 0px 0px 0px;
+}
+.ui-panelmenu .ui-menuitem {
+    width:97%;
+}
+.ui-state-default .ui-icon {
+    background-image: none;
+}
+
+ul.ui-menu-child {
+    width: 170px !important;
+}
+.ui-menu .ui-menuitem-text {
+    font-size: 11px;
+    font-weight: bold;
+}
+.ui-widget {
+    font-size: 11px;
+    margin:10px;
+}
+.ui-widget .ui-panelmenu-panel {
+    width:300px;
+    float:left;
+    margin:0px 20px 20px 0px;
+}
+.ui-widget .ui-panelmenu-panel .ui-helper-hidden {
+    display: block;
+    height:400px;
+    border-top:1px;
+    border-radius: 0px 0px 5px 5px;
+    margin-top:-1px;
+}
+
+.ui-tabs-left > .ui-tabs-nav {
+    width:14%;
+}
+.ui-tabs-left > .ui-tabs-panels {
+    width:86%;
+}
+.ui-widget .ui-widget {
+    font-size:12px;
+}
+.ui-widget-content a {
+    color:#000000;
+}
+.ui-corner-all {
+    moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.ui-corner-top {
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    box-shadow: none;
+}
+.ui-datatable-scrollable .ui-datatable-scrollable-header-box, .ui-datatable-scrollable .ui-datatable-scrollable-footer-box {
+    padding-right:18px;
+}
+.ui-panelgrid td {
+    border-color: #DDDDDD;
+}
+.ui-panelgrid td label {
+    white-space: nowrap;
+}
+#top .ui-icon {
+    width:0px;
+}
+.ui-datatable .ui-sortable-column-icon  {
+    top:18px;
+    left:10px;
+}
+.ui-datatable .ui-sortable-column span {
+    display:block;
+}
+.ui-datatable .ui-column-filter {
+    display:inline;
+}
+.ui-notificationbar {
+    text-align:center;
+    height:auto;
+    padding:25px;
+}
+.ui-tabs.ui-tabs-left > .ui-tabs-nav li {
+    margin-right: 0px !important;
+}
+.detailContent .ui-widget-content {
+    border:0px;
+}
+.detailContent .ui-widget-header {
+    background:none;
+}
+.detailContent .ui-widget-header {
+    border:0px;
+    font-size:16px;
+}
+.detailContent .ui-panelgrid td{
+    border-width: 0px;
+}
+.detailContent .ui-widget .ui-widget {
+    font-size:12px;
+    width: 367px !important;
+}
+.detailContent .ui-widget input.ui-widget {
+    font-size:12px;
+    width: 360px !important;
+}
+.detailContent .ui-widget-content {
+    color:#000000;
+}
+.detailContent .ui-corner-all {
+    border-radius: 0px 0px 0px 0px;
+}
+.detailContent input.ui-corner-all {
+    width: 367px;
+}
+.detailContent .ui-state-default .ui-icon {
+    background-image: url("/BizBoxClient/faces/javax.faces.resource/images/ui-icons_38667f_256x240.png?ln=primefaces-aristo");
+}
+.detailContent .ui-widget {
+    margin:0px;
+}
+.detailContent .ui-panelgrid td {
+    padding: 4px 10px 4px 0px;
+}
+.detailContent .ui-widget button.ui-widget {
+    width:100px !important;
+}
+#FileMenu {
+	height:20px;
+	padding:4px;
+	border:1px solid #CCC;
+	background-color:#EEEEEE;
+	border-bottom:0px;
+}
+#FileMenu div {
+	float:left;
+	padding:0px 12px;
+}
+#FileMenu div.logout {
+	float:right;
+	padding:0px 0px;
+}
+#FileMenu div a {
+	font-size:13px;
+	text-decoration:none;
+	color:#000000;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#FileMenu div .ui-corner-all {
+    moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+    font-size: 13px;
+    margin: 0px;
+    background:none;
+    border:0px;
+    padding: 0px 0px;
+}
+#FileMenu div .ui-corner-all .ui-toolbar-group-right{
+    padding: 0px 0px;
+}
+#FileMenu div .ui-button-text-icon-left .ui-button-text {
+    padding: 0px 12px 0px 12px;
+    color:#000000;
+    font-family: arial;
+    font-size:13px;
+    font-weight: normal;
+    border: 1px solid #CCCCCC;
+}
+#optionsView {
+	height:35px;
+	padding:4px;
+	border:1px solid #CCC;
+	background-color:#EEEEEE;
+}
+#optionsView div {
+	float:left;
+	padding:8px 8px;
+	border-right:1px solid #DDDDDD;
+	width:25px;
+	text-align:center;
+}
+#optionsView div.Backward, #optionsView .bottom, #optionsView .Top {
+	border-right:0px;
+	padding-right:0px;
+}
+#optionsView .Topm {border-right:0px;}
+.ui-tabs .ui-tabs-nav li a { font-size:10px;}
+.ui-button {margin:5px;}
+.ui-tabs .ui-tabs-panel {padding:0px 0px;}
+#partMasterLeftViewTabs {margin: 25px 0px 0px 0px;}
+.ui-panel .ui-panel-content { padding:0px 0px;}
+.ui-panel {padding:1px;margin:5px 0px;}
+.ui-outputlabel {margin:5px;}
+.ui-panelmenu-header {border-radius: 5px 5px 0px 0px;}
+.ui-inputtext {margin:5px 0px 5px 10px;}
+.ui-selectonemenu {margin:0px;}
+.ui-tabs {margin:0px 0px 0px 5px;}
+.ui-inputtextarea {margin:5px 5px 0px 0px;}
+.ui-widget .ui-widget {font-size:10px;}

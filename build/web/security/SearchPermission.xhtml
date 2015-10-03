@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <body>
+        <h:form id="searchPermissionsForm">
+             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />                                   
+                        <p:panel id="permissionsSearchPanel">  
+                            <p:outputLabel for="permissionIdInput" value="Permission Id:"/>
+                            <p:inputText id="permissionIdInput" value="#{searchPermissionBean.permissionId}"/>
+                            <p:commandButton  ajax="true" value="Search" actionListener="#{searchPermissionBean.searchPermissions()}" update="SearchPermissionsResultPanel">
+                              <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>
+                            </p:commandButton>
+                        </p:panel>
+                        <p:panel id="SearchPermissionsResultPanel" widgetVar="SearchPermissionsResultPanel" style="visibility: #{searchPermissionBean.showResult}">
+                            <p:dataTable  var="permission" value="#{searchPermissionBean.permissionDataModel}" rowKey="#{permission.permissionId}" scrollable="true" scrollRows="10" scrollHeight="300"  
+                                          selection="#{searchPermissionBean.selectedPermission}" selectionMode="single" id="permissionsSearchResultTable"  
+                             emptyMessage="No match found with this Search criteria!!!">  
+                            <p:column headerText="Permission Id" id="userNameCol">  
+                            #{permission.permissionId}  
+                            </p:column>   
+                            <p:column headerText="Parent" id="employeeIdCol">  
+                            #{permission.parentId}  
+                            </p:column>                                  
+                            </p:dataTable>
+                        </p:panel>
+                        <p:panel id="searchUserButtonPanel">                 
+                                <p:commandButton value="View Roles"  id="updateButton" icon="ui-icon-pencil"/>
+                                <p:commandButton value="View Users" ajax="true" id="deleteButton" icon="ui-icon-trash"/>
+                                <p:commandButton value="Refresh" id="refreshButton" icon="ui-icon-refresh"/>       
+                        </p:panel>
+                        <p:dialog modal="true" widgetVar="statusDialog" header="Loading Permissions From Server"   
+                            draggable="false" closable="false">  
+                            <p:graphicImage value="../resources/images/ajax-loading-bar.gif" />            
+                        </p:dialog>
+                </h:form>
+    </body>
+</html>

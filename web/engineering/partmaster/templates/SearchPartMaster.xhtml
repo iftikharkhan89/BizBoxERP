@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+             <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>   
+            <p:outputLabel for="partNumberInputText" value="Part Number:"/>
+                    </td>
+                    <td width="180">
+            <p:inputText id="partNumberInputText" value="#{searchPartMasterBean.partNumber}"/>
+                    </td>
+                    <td>
+            <p:outputLabel for="descriptionText" value="Description:"/>
+                    </td>
+                    <td>
+            <p:inputText id="descriptionText" value="#{searchPartMasterBean.description}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+            <p:outputLabel for="partTypeOptions2" value="Part Type:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu id="partTypeOptions2" value="#{searchPartMasterBean.selectedPartType}" effect="fold" style="width:130px">                       
+                <f:selectItems value="#{partMasterBean.partTypes}" />  
+            </p:selectOneMenu>
+                     </td>
+                    <td>
+            <p:outputLabel for="langOptions" value="Language:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu id="langOptions" value="#{searchPartMasterBean.language}" effect="fold" style="width:130px">   
+                     <f:selectItem itemLabel="English" itemValue="en"/>
+                     <f:selectItem itemLabel="Chinese" itemValue="ch"/>
+            </p:selectOneMenu>
+                     </td>
+                </tr>
+                <tr>
+                    <td>
+            <p:outputLabel for="modelInputText" value="Model:"/>
+                    </td>
+                    <td>
+            <p:inputText id="modelInputText" value="#{searchPartMasterBean.model}"/>
+                    </td>
+                    <td>
+            <p:outputLabel for="commodityCodeInputText" value="Commodity Code:"/>
+                    </td>
+                    <td>
+            <p:inputText id="commodityCodeInputText" value="#{searchPartMasterBean.commodityCode}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+            <p:outputLabel for="productCodeInputText" value="Product Code:"/>
+                    </td>
+                    <td>
+            <p:inputText id="productCodeInputText" value="#{searchPartMasterBean.productCode}"/>
+                    </td>
+                    <td>
+             <p:outputLabel for="makeBuyInputText" value="Make/Buy:"/>
+                    </td>
+                    <td>
+             <p:selectOneMenu id="makeBuyInputText" value="#{searchPartMasterBean.makeBuy}" effect="fold" style="width:130px">   
+                     <f:selectItem itemLabel="All" itemValue="all"/>
+                     <f:selectItem itemLabel="Make" itemValue="make"/>
+                     <f:selectItem itemLabel="Buy" itemValue="buy"/>
+                     <f:selectItem itemLabel="X" itemValue="x"/>
+            </p:selectOneMenu>
+                     </td>
+                </tr>
+                <tr>
+                    <td>
+            <p:outputLabel for="criteriaOptions" value="Make/Buy:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu id="criteriaOptions" value="#{searchPartMasterBean.criteria}" effect="fold" style="width:130px">   
+                     <f:selectItem itemLabel="Part Number" itemValue="1"/>
+                     <f:selectItem itemLabel="Description (start with)" itemValue="2"/>
+                     <f:selectItem itemLabel="Part Type" itemValue="3"/>
+                     <f:selectItem itemLabel="Language" itemValue="4"/>
+                     <f:selectItem itemLabel="MFG Part# (start with)" itemValue="5"/>
+                     <f:selectItem itemLabel="MFG Part# (contains)" itemValue="6"/>
+                     <f:selectItem itemLabel="MFG Id (start with)" itemValue="7"/>
+                     <f:selectItem itemLabel="Part Number and Description" itemValue="7"/>
+            </p:selectOneMenu> 
+                        </td>
+                </tr>
+                 <tr>
+                    <td height="10"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+           <p:commandButton value="Search" update="partMasterUIPanel" id="searchButton"  
+                            actionListener="#{searchPartMasterBean.searchPart}" styleClass="ui-priority-primary"/>  
+                    </td>
+                </tr>
+             </table>
+    </body>
+</html>

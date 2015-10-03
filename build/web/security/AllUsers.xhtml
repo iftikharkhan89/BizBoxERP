@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+        <div>
+            <h:form id="allUsersTableform">
+                <p:panel id="allUserDataTable" widgetVar="allUserDataTable">   
+            <p:dataTable var="user" value="#{userBean.userDataModel}" rowKey="#{user.userName}" paginator="true" rows="10"  
+                selection="#{userBean.selectedUser}" selectionMode="single" filteredValue="#{userBean.filteredUsers}" id="usersTable">
+            <f:facet name="header">  
+
+            </f:facet>  
+            <p:column headerText="User Name" sortBy="#{user.userName}" filterBy="#{user.userName}" id="userNameCol">  
+            #{user.userName}  
+            </p:column>   
+            <p:column headerText="Employee Id" sortBy="#{user.refId}" filterBy="#{user.refId}" id="employeeIdCol">  
+            #{user.refId}  
+            </p:column>   
+            <p:column headerText="Full Name" sortBy="#{user.systemUserName}" filterBy="#{user.systemUserName}" id="systemUserNameCol">  
+            #{user.systemUserName}  
+            </p:column>   
+            <p:column headerText="Status" sortBy="#{user.status}"  id="statusCol">
+            <img src='../resources/images/#{user.status == 0 ? "offline.png":"online.png"}' width="20" height="19" alt='#{user.status == 0 ? "Offline":"Online"}'/>
+            <input type="hidden" value="#{user.status}"/>
+            </p:column>               
+           </p:dataTable>
+              </p:panel>
+                <p:panel>
+                  <f:facet name="footer">  
+                  <p:commandButton  value="Edit"  id="updateButton" icon="ui-icon-pencil" actionListener="#{userBean.edit}"/>
+                  <p:commandButton value="Delete"  id="deleteButton" icon="ui-icon-trash" actionListener="#{userBean.delete}"/>
+                  <p:commandButton value="Refresh" id="refreshButton" icon="ui-icon-refresh" actionListener="#{userBean.refresh}" update="allUserDataTable"/>
+                  </f:facet> 
+                </p:panel>     
+           <p:ajaxStatus  onstart="allUsersStatus.show();" onsuccess="allUsersStatus.hide();"/>     
+           <p:dialog modal="true" widgetVar="allUsersStatus" header="Performing Action..."   
+                            draggable="false" closable="false">  
+                            <p:graphicImage value="../resources/images/ajax-loading-bar.gif" />            
+            </p:dialog>     
+        </h:form>  
+    </div>
+ </body>
+</html>

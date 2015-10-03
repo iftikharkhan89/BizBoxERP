@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <p:panel rendered="#{addPartMasterBean.action eq 'update'}" id="updatePartMasterGeneralInfoPanel" header="General Information">
+          <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+            <p:outputLabel for="updatePartMaster_partNumberText" value="Part Number:"/>
+                    </td>
+                    <td width="180">
+                        <p:inputText disabled="true" rendered="#{addPartMasterBean.editMode eq 'edit'}" id="updatePartMaster_partNumberText" value="#{addPartMasterBean.partPK.partNumber}"/>
+                        <p:outputLabel rendered="#{addPartMasterBean.editMode eq 'view'}" id="updatePartMaster_partNumberLabel" value="#{addPartMasterBean.partPK.partNumber}"/>
+                    </td>
+                    <td>
+            <p:outputLabel for="updatePartMaster_revisionText" value="Revision:"/>
+                    </td>
+                    <td>
+            <p:inputText rendered="#{addPartMasterBean.editMode eq 'edit'}" id="updatePartMaster_revisionText" value="#{addPartMasterBean.revision}"/>
+            <p:outputLabel rendered="#{addPartMasterBean.editMode eq 'view'}" id="updatePartMaster_revisionLabel" value="#{addPartMasterBean.revision}"/>
+                    </td>
+                
+                
+                    <td>
+            <p:outputLabel for="updatePartMaster_partTypeOptions" value="Part Type:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu rendered="#{addPartMasterBean.editMode eq 'edit'}" id="updatePartMaster_partTypeOptions" value="#{addPartMasterBean.selectedPartType}" effect="fold" style="width:130px">                       
+                <f:selectItems value="#{partMasterBean.partTypes}" />  
+            </p:selectOneMenu>
+            <p:outputLabel rendered="#{addPartMasterBean.editMode eq 'view'}" id="updatePartMaster_partTypeLabel" value="#{addPartMasterBean.partPK.partType}"/>           
+                     </td>
+                    <td>
+            <p:outputLabel for="updatePartMaster_uomOptions" value="Part UOM:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu rendered="#{addPartMasterBean.editMode eq 'edit'}" id="updatePartMaster_uomOptions" value="#{addPartMasterBean.selectedUOM}" effect="fold" style="width:130px">   
+                <f:selectItems value="#{partMasterBean.allUOM}" />  
+            </p:selectOneMenu>
+            <p:outputLabel rendered="#{addPartMasterBean.editMode eq 'view'}" id="updatePartMaster_uomLabel" value="#{addPartMasterBean.selectedUOM}"/>           
+                        </td>
+                </tr>
+                 <tr>
+                     <td>
+            <p:outputLabel for="updatePartMaster_descriptionTextArea" value="Description:"/>
+                     </td>
+                    <td colspan="3">
+            <p:inputTextarea rendered="#{addPartMasterBean.editMode eq 'edit'}" id="updatePartMaster_descriptionTextArea" cols="70" rows="4" value="#{addPartMasterBean.description}"/>
+            <p:outputLabel rendered="#{addPartMasterBean.editMode eq 'view'}" id="updatePartMaster_descriptionLabel" value="#{addPartMasterBean.description}"/>
+                         </td>
+                </tr>
+                 <tr>
+                    <td height="10"></td>
+                </tr>
+          </table>
+        </p:panel>
+        <p:panel rendered="#{addPartMasterBean.action eq 'update'}" id="updatePartMasterInventoryPanel" header="Inventory">
+            
+        </p:panel>
+        <p:panel rendered="#{addPartMasterBean.action eq 'update'}" id="updatePartMasterDocumentsPanel" header="Documents">
+            
+        </p:panel>
+        <p:panel rendered="#{addPartMasterBean.action eq 'update'}" id="updatePartMasterControlPanel">
+            <p:commandButton ajax="true" value="Save" update="partMasterUIPanel" id="savePartMasterButton"  
+                             actionListener="#{addPartMasterBean.savePartMaster}" styleClass="ui-priority-primary"/>
+            <p:commandButton ajax="true" value="Edit" update="partMasterUIPanel" id="editPartMasterButton"  
+                             actionListener="#{addPartMasterBean.changeModeToEdit}" styleClass="ui-priority-primary"/>
+            
+            <p:commandButton ajax="true" value="Cancel" update="partMasterUIPanel" id="cancelUpdatePartMasterButton"  
+                             actionListener="#{addPartMasterBean.hideUpdatePartMasterUI}" styleClass="ui-priority-primary"/>
+        </p:panel>
+    </body>
+</html>

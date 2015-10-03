@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+    <body>
+         <h:form id="EngineeringSharingForm">
+           <p:panel id="engineeringSharingOptionsPanel">
+               <p:selectOneButton  id="EngineeringSharingOptions" value="#{engineeringSharingBean.selectedButton}">
+            <f:selectItem itemLabel="Add Engineering Sharing" itemValue="1" />  
+            <f:selectItem itemLabel="All Engineering Sharing" itemValue="2" />  
+            <f:selectItem itemLabel="Search Import Log" itemValue="3" />
+            
+            <p:ajax id="engineeringSharingOptionsSelectionAjax" update="EngineeringSharingUIPanel"/>
+        </p:selectOneButton> 
+        
+             <p:panel id="EngineeringSharingUIPanel" style="border: 0">
+                 <p:panel rendered="#{engineeringSharingBean.selectedButton == 1}" id="AddEngineeringSharingPanel">
+                     <p:calendar value="#{engineeringSharingAddBean.effectiveDate}" id="effectiveDateCal" />
+                     <p:calendar value="#{engineeringSharingAddBean.expiryDate}" id="expiryDateCal" /> 
+                 </p:panel>
+                 <p:panel rendered="#{engineeringSharingBean.selectedButton == 2}" id="searchEngineeringSharingPanel">
+                     
+                 </p:panel>
+                 <p:panel rendered="#{engineeringSharingBean.selectedButton == 3}" id="searchImportLogEngineeringSharingPanel">
+                     
+                 </p:panel>              
+             </p:panel> 
+          </p:panel>
+        </h:form>
+    </body>
+</html>

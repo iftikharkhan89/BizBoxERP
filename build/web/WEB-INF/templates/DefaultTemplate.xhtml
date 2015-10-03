@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>ERP Home</title>
+        
+    </h:head>
+    <h:body>
+        <div id="top">
+            <ui:insert name="top">
+                <ui:include src="ToolBar.xhtml"/>
+            </ui:insert>
+        </div>
+        <div id="mainContent">
+            <div id="left" style="float: left;overflow: auto">
+                    <ui:insert name="left">
+                    <h:form id="accordionMenuform">
+                        <p:panelMenu id="leftPanelMenu" model="#{accordionMenuBean.panelMenuModel}" />
+                    </h:form>  
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content" style="float: left">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">
+                    <p:toolbar id="footerlabels">
+                        <p:toolbarGroup align="left">
+                        <h:outputText id="serverKey" value="Server:  "/>          
+                        <h:outputText id="serverValue" value="[#{loginBean.targetServerIP}]"/>
+                        </p:toolbarGroup>
+                        <p:toolbarGroup align="left">
+                        <h:outputText id="serverStatusKey" value="  Status:  "/>
+                         <h:outputText id="serverStatus" value="[Connected]"/>
+                         </p:toolbarGroup>
+                        <p:toolbarGroup align="right">
+                          <h:outputText id="UserKey" value="User: "/>
+                          <h:outputText id="userValue" value="[#{loginBean.userName}]"/>
+                          </p:toolbarGroup>                          
+                    </p:toolbar>
+            </ui:insert>
+        </div>
+        <h:form id="idleMonitorForm">
+        <p:idleMonitor timeout="300000">  
+            <p:ajax event="idle" listener="#{loginBean.handleSessionTimeout}" onsuccess="bar.show()"/>  
+            <p:ajax event="active" listener="#{loginBean.navigateToLoginPage}" oncomplete="bar.hide()"/>  
+        </p:idleMonitor>
+        <p:notificationBar position="top" effect="slide" widgetVar="bar">  
+            <h:outputText value="Session Expired! Press any key to login again..." style="color:#FFCC00;font-size:20px;" />  
+        </p:notificationBar>         
+        </h:form>
+    </h:body>
+</html>

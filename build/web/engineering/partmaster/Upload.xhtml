@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <body>
+        <h:form id="partMasterUploadImagesForm"  enctype="multipart/form-data" style="margin: 0px;">
+            
+            <p:panel id="UploadImageControlPanel">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <h:outputText value="Choose Upload Type: " /> 
+                        </td>
+                        <td>
+                            <p:selectOneRadio id="selectedOperationTypeoptions" value="#{partMasterUploadBean.selectedOperationType}">  
+                                <f:selectItem itemLabel="Single Image" itemValue="1" />  
+                                <f:selectItem itemLabel="Multiple Images" itemValue="2" /> 
+                                <p:ajax id="selectedOperationTypeoptionsAjax" update="UploadImageControlPanel"/>
+                            </p:selectOneRadio> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p><b>Note:</b> Part image name format should be partnumber_###########_xx.jpg e.g partnumber_234567_en.jpg , png, jpg and gif are supported types.</p>
+                        </td>
+                    </tr>
+                </table>
+             <p:panel rendered="#{partMasterUploadBean.selectedOperationType == 1}">
+                <p:outputLabel for="upload_partNumberText" value="Part Number:"/>
+                <p:inputText id="upload_partNumberText" value="#{partMasterUploadBean.partNumber}"/>
+                <p:outputLabel  value="Image File:"/>
+                    <p:fileUpload fileUploadListener="#{partMasterUploadBean.handleSingleUpload}"   
+                                  mode="advanced" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>  
+             </p:panel>
+             <p:panel rendered="#{partMasterUploadBean.selectedOperationType == 2}">
+             <p:fileUpload fileUploadListener="#{partMasterUploadBean.handleMultipleUpload}"
+            mode="advanced"                 
+            multiple="true"  
+            sizeLimit="100000"   
+            allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+             </p:panel>
+            </p:panel>    
+        </h:form>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+       <h:form id="addRoleForm">
+           <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+           <p:panel id="addRoleInputPanel" header="Input Fields">
+            <p:panelGrid columns="2">
+                <p:outputLabel for="roleIdInputText" value="Role Id:"/>
+                <p:inputText id="roleIdInputText" value="#{addRoleBean.roleId}"/>
+                <p:outputLabel for="roleNameInputText" value="Role Name:"/>
+                <p:inputText id="roleNameInputText" value="#{addRoleBean.roleName}"/>
+                <p:outputLabel for="roleDescTextArea" value="Description"/>
+                <p:inputTextarea id="roleDescTextArea" rows="5" cols="25" value="#{addRoleBean.description}"/>
+            </p:panelGrid>
+            
+        </p:panel>
+           <p:panel id="addRolePermissionsPanel" header="Select Permissions">
+               <p:tree value="#{addRoleBean.root}" var="node" id="checkboxTree"  
+            selectionMode="checkbox"  
+            selection="#{addRoleBean.selectedNodes}">
+        <p:treeNode>  
+            <h:outputText value="#{node}" />  
+        </p:treeNode>  
+    </p:tree>  
+        </p:panel>
+           <p:panel id="addRoleButtonPanel">
+               <p:commandButton actionListener="#{addRoleBean.save}" value="Save" style="margin:0"/>
+               <p:commandButton  action="#{addRoleBean.reset}" value="Reset" style="margin:0"/>
+           </p:panel>
+        </h:form>
+    </body>
+</html>

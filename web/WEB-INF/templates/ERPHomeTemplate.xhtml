@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="resources/JavaScript/menu.js" ></script>
+        <title>ERP Home</title>
+    </h:head>
+    <h:body>
+        <div id="top" class="top">
+            <ui:include src="Header.xhtml"/>
+        </div>
+        <div id="HomePageMenu">
+            <div id="Prev-Button" onclick="PrevMenu()"></div>
+            <div id="content" class="center_content" >
+                <ui:insert name="content">
+                        <h:form id="accordionMenuform">
+                            <p:panelMenu id="leftPanelMenu" model="#{accordionMenuBean.panelMenuModel}" />
+                            <style>
+                                #HomePageMenu {margin: auto; width:980px;background-color: #dadfe5; padding:0px 15px;margin-top:20px;border:1px solid #acb3bc; height:459px;overflow: hidden;}
+                                #HomePageMenu #Prev-Button {margin-top: 190px;width:37px; height:67px; float:left;}
+                                #HomePageMenu #content { width:900px; float:left; margin: auto; margin-top:0px; }
+                                #HomePageMenu #Next-Button {margin-top: 190px; width:37px; height:67px; float:left;}
+                            </style>
+                        </h:form>  
+                    </ui:insert>             
+                
+            </div>
+            <div id="Next-Button" onclick="nextMenu()"></div>
+        </div>
+    </h:body>
+</html>

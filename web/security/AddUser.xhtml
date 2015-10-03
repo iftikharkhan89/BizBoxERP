@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+        <h:form id="addUserForm">
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            <p:accordionPanel widgetVar="addUserPanel">  
+                <p:tab title="General Information" id="userGeneralInfoTab"> 
+                <p:panelGrid columns="2" style=" width: 400px;margin-left: 10px;margin-top: 5px">     
+                    <h:outputLabel for="username" value="User: *" />  
+                    <p:inputText id="username" value="#{addUserBean.user.userName}" required="true" label="User"/> 
+            
+                    <h:outputLabel for="password" value="Password: *" />  
+                    <p:password id="password" value="#{addUserBean.user.password}" required="true" label="Password"/>
+                    <h:outputLabel for="confirmPassword" value="Confirm Password: *" />  
+                    <p:password id="confirmPassword" value="#{addUserBean.confirmPassword}" required="true" label="Confirm Password"/>   
+                    
+                    <h:outputLabel for="userTypeRadio" value="User Type: " />  
+                    <p:selectOneRadio id="userTypeRadio" value="#{addUserBean.user.type}" label="User Type" required="true" requiredMessage="Please Select at least one option!">  
+                    <f:selectItem itemLabel="Associate" itemValue="1" />
+                    <f:selectItem itemLabel="Employee" itemValue="0" />   
+                    </p:selectOneRadio>
+                    <h:outputLabel for="commentsTextArea" id="commentsLabel" value="Comments"/>
+                    <p:inputTextarea id="commentsTextArea" rows="5" cols="40" value="#{addUserBean.user.comment}"/>                    
+            </p:panelGrid>
+            </p:tab>
+            <p:tab title="User Roles" id="userRolesTab">  
+                <p:dataTable id="rolesTable" var="role" value="#{addUserBean.roleDataModel}" scrollable="true" scrollRows="10" scrollHeight="200"  
+                             selection="#{addUserBean.userRoles}" widgetVar="displayMultiple">  
+                    <p:column selectionMode="multiple" style="width:40px"/>
+                    <p:column headerText="Role Id" style="width:180px;">  
+                    #{role.roleId}  
+                    </p:column>  
+                    <p:column headerText="Role Name" style="width:180px">  
+                    #{role.roleName}  
+                    </p:column>  
+                    <p:column headerText="Description" style="width:317px">  
+                    #{role.description}  
+                    </p:column>  
+                    <p:column headerText="System Role" style="width:110px">  
+                        <img src='../resources/images/#{role.system ? "yes-icon.png":"no-icon.png"}' width="20" height="19" alt="no-icon"/>
+                    </p:column>   
+            </p:dataTable>  
+        </p:tab>  
+        </p:accordionPanel>
+            <p:panel id="addUserButtonPanel">
+                <p:commandButton ajax="true" actionListener="#{addUserBean.addUser}" value="Add" style="margin:0">
+                    <p:ajaxStatus onstart="addUserStatus.show();" onsuccess="addUserStatus.hide();"/>
+                </p:commandButton>    
+             <p:commandButton  action="#{addUserBean.reset}" value="Reset" style="margin:0"/>
+           </p:panel>
+            <p:dialog modal="true" widgetVar="addUserStatus" header="Performing Action..."   
+                            draggable="false" closable="false">  
+                            <p:graphicImage value="../resources/images/ajax-loading-bar.gif" />            
+            </p:dialog>
+      </h:form>      
+    </body>
+</html>

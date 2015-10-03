@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <link href="../../resources/css/default_backup.css" rel="stylesheet" type="text/css" />
+        <link href="../../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>ERP Menu</title>
+        <style>
+            ul.ui-menu-child {
+                width: 170px !important;
+            }
+            .ui-widget, .ui-widget .ui-widget {
+                font-size: 90% !important;
+            } 
+        </style>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet name="../../resources/css/default.css" />
+        <div id="top" class="top">
+            <ui:insert name="top">
+                <h:form>  
+                    <p:menubar model="#{topMenuBean.menuModel}"/>
+                </h:form>  
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <h:form id="form">
+                        <p:tree id="docTree" value="#{leftNavigationTreeBean.root}" var="doc" selectionMode="single" style="width:250px;height:400px">  
+                        <p:treeNode expandedIcon="ui-icon-folder-open" collapsedIcon="ui-icon-folder-collapsed">  
+                            <h:outputText value="#{doc.name}"/>  
+                        </p:treeNode>  
+                        </p:tree>
+                    </h:form>  
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

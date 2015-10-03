@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <body>
+        <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+       <p:outputLabel for="lookup_partNumberInputText" value="Part Number:"/>
+                    </td>
+                    <td width="180">
+       <p:inputText id="lookup_partNumberInputText" value="#{lookupPartMasterBean.partNumber}"/>            
+                    </td>
+                    <td>
+            <p:outputLabel for="lookup_partTypeOptions" value="Part Type:"/>
+                    </td>
+                    <td>
+            <p:selectOneMenu id="lookup_partTypeOptions" value="#{lookupPartMasterBean.selectedType}" effect="fold" style="width:130px">                       
+                <f:selectItems value="#{partMasterBean.partTypes}" />  
+            </p:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="10"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+            <p:commandButton value="Lookup Part Master" update="partMasterUIPanel" id="lookupPartMasterButton"  
+                             actionListener="#{lookupPartMasterBean.lookupPartMaster}" styleClass="ui-priority-primary"/>
+            <p:commandButton value="Lookup Part Master Where Used" update="partMasterUIPanel" id="lookupPartMasterWhereUsedButton"  
+                             actionListener="#{lookupPartMasterBean.lookupPartMasterWhereUsed}" styleClass="ui-priority-primary"/>
+                    </td>
+                </tr>
+        </table>
+    </body>
+</html>

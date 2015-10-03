@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <body>
+        <h:form id="toolBarForm">
+            <div id="FileMenu">
+                <div><a href="#">File</a></div>
+                <div><a href="#">Edit</a></div>
+                <div><a href="#">View</a></div>
+                <div><a href="#">Go</a></div>
+                <div><a href="#">Tools</a></div>
+                <div><a href="#">Windows</a></div>
+                <div><a href="#">Help</a></div>
+                <div class="logout">
+                    <p:toolbar> 
+                        <p:toolbarGroup align="right">  
+                            <p:menuButton value="#{loginBean.userName}"> 
+                                <p:menuitem value="Change Password"  url="#" />  
+                                <p:menuitem value="Logout"  actionListener="#{loginBean.logout}" />  
+                            </p:menuButton>  
+                        </p:toolbarGroup>   
+                    </p:toolbar>
+                </div>
+            </div>
+            <div id="optionsView">
+                <div class="Undo"><a href="#"><img src="resources/images/icons/Undo-icon.png" width="20" height="20" border="0" alt="Undo" title="Undo" /></a></div>
+                <div class="NewRecord"><a href="#"><img src="resources/images/icons/NewRecord.png" width="15" height="20" border="0"  alt="New Record" title="New Record" /></a></div>
+                <div class="deleteRecord"><a href="#"><img src="resources/images/icons/deleteRecord.png" alt="Delete Record" title="Delete Record" width="19" height="20" border="0"  /></a></div>
+                <div class="DeleteMultiple"><a href="#"><img src="resources/images/icons/DeleteMultiple-icon.png" alt="DeleteMultiple" title="DeleteMultiple" width="20" height="20" border="0"  /></a></div>
+                <div class="Save"><a href="#"><img src="resources/images/icons/Save-icon.png" alt="Save" title="Save" width="20" height="20" border="0"  /></a></div>
+                <div class="Refresh"><a href="#"><img src="resources/images/icons/Refresh-icon.png" alt="Refresh" title="Refresh" width="16" height="20" border="0"  /></a></div>
+                <div class="Attachment"><a href="#"><img src="resources/images/icons/attachment-icon.png" alt="Attachment" title="Attachment" width="20" height="20" border="0"  /></a></div>
+                <div class="GridView"><a href="#"><img src="resources/images/icons/gridview-icon.png" alt="Grid View" title="Grid View" width="21" height="20" border="0" /></a></div>
+                <div class="Backward"><a href="#"><img src="resources/images/icons/Backward-icon.png" width="20" height="20" border="0" alt="Backward" title="Backward" /></a></div>
+                <div class="Forward"><a href="#"><img src="resources/images/icons/forward-icon.png" width="20" height="20" border="0" alt="Forward" title="Forward" /></a></div>
+                 <div class="Top"><a href="#"><img src="resources/images/icons/TopMost-icon.png" width="20" height="20" border="0" alt="Top" title="Top" /></a></div>
+                 <div class="Topm"><a href="#"><img src="resources/images/icons/Top-icon.png" width="20" height="20" border="0" alt="Top" title="Top" /></a></div>
+                 <div class="bottom"><a href="#"><img src="resources/images/icons/bottom-icon.png" width="20" height="20" border="0" alt="Bottom" title="Bottom" /></a></div>
+                 <div class="bottomm"><a href="#"><img src="resources/images/icons/bottomMost-icon.png" width="20" height="20" border="0" alt="Bottom" title="Bottom" /></a></div>
+                 <div class="Review"><a href="#"><img src="resources/images/icons/Review-icon.png" width="15" height="20" border="0" alt="Review" title="Review" /></a></div>
+                 <div class="Archive"><a href="#"><img src="resources/images/icons/Archive-icon.png" width="18" height="20" border="0" alt="Archive" title="Archive" /></a></div>
+                 <div class="Print"><a href="#"><img src="resources/images/icons/print-icon.png" width="20" height="20" border="0" alt="Print" title="Print" /></a></div>
+                 <div class="createview"><a href="#"><img src="resources/images/icons/createview-icon.png" width="21" height="20" border="0" alt="Create View" title="Create View" /></a></div>
+                 <div class="Warehouse"><a href="#"><img src="resources/images/icons/warehouse_icon.png" width="21" height="20" border="0" alt="Warehouse" title="Warehouse" /></a></div>
+            </div>
+        </h:form>
+    </body>
+</html>
